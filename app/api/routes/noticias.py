@@ -1,7 +1,8 @@
 from fastapi import APIRouter
+from app.api.services.noticias import get_noticias_hltv
 
-router = APIRouter()
+router = APIRouter(prefix="/noticias", tags=["Notícias"])
 
-@router.get("/noticias")
-async def get_noticias():
-    return {"mensagem": "Aqui estão as notícias"}
+@router.get("/")
+def listar_noticias():
+    return {"notícias": get_noticias_hltv()}
