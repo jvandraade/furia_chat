@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api.routes import chat, noticias, jogadores, eventos
+from app.api.routes import chat, noticias, jogadores, eventos, conteudos
 from app.api.websocket.connection import router as websocket_router
 from app.api.tasks.notifier import start_scheduler
 
@@ -18,6 +18,7 @@ app.include_router(noticias.router)
 app.include_router(websocket_router)
 app.include_router(jogadores.router)
 app.include_router(eventos.router)
+app.include_router(conteudos.router)
 
 @app.get("/")
 def read_root():
