@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from dotenv import load_dotenv
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.routes import chat, noticias, jogadores, eventos, conteudos, loja
 from app.api.websocket.connection import router as websocket_router
@@ -27,3 +28,5 @@ def read_root():
 
 # Notificações de novos conteúdos em rede social
 start_scheduler()
+
+load_dotenv()
